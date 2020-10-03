@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View,Keyboard,Alert,TouchableWithoutFeedback,TouchableOpacity,ScrollView } from 'react-native';
 
 
-
 export default class LanguageSelectionScreen extends React.Component {
   state={
     time:"",
@@ -15,7 +14,21 @@ export default class LanguageSelectionScreen extends React.Component {
   render(){
   return (
     <View style={styles.container}>
-        <Text>Hello from Lan Sel Screen</Text>
+        <TouchableOpacity style={styles.nameBox} onPress={()=>{
+            this.props.navigation.navigate("CateSelScreen",{Lan:'Marathi'})
+        }}>
+          <Text style={styles.lanText}>मराठी</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.nameBox} onPress={()=>{
+            this.props.navigation.navigate("CateSelScreen",{Lan:'Hindi'})
+        }}>
+          <Text style={styles.lanText} >हिंदी</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.nameBox} onPress={()=>{
+            this.props.navigation.navigate("CateSelScreen",{Lan:'English'})
+        }}>
+          <Text style={styles.lanText}>English</Text>
+        </TouchableOpacity>
     </View>
    
   );
@@ -26,6 +39,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  linGradient:{
+    flex:1,
+  },
+  nameBox:{
+    width:'80%',
+    height:'15%',
+    marginBottom:10,
+    borderRadius:10,
+    borderWidth:5,
+    borderColor:'black',
+    backgroundColor:'red',
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  lanText:{
+    color:'white',
+    fontSize:28
   }
 });
