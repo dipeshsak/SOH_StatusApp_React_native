@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View,TouchableOpacity,FlatList } from 'react-native';
-
-
+let colors=["#ff9999","#ffcc99","#66ffff","#99ff99","#9999ff","#ff99ff"]
 export default class CategorySelectionScreen extends React.Component {
    
   state={
@@ -40,15 +39,14 @@ export default class CategorySelectionScreen extends React.Component {
     }
   }
 
-  renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.nameBox} onPress={()=>{
+  renderItem = ({ item,index }) => (
+    <TouchableOpacity style={[styles.nameBox,{backgroundColor:colors[index % colors.length]}]} onPress={()=>{
       this.props.navigation.navigate("CardAnimationScreen")
   }}>
     <Text style={styles.catText}>{item.id}</Text>
   </TouchableOpacity>
   )
 
-  
   render(){
   return (
     <View style={styles.container}>
@@ -72,7 +70,7 @@ const styles = StyleSheet.create({
   },
   FlatListStyle:{
     flex:1,
-    backgroundColor:'#fff',
+    backgroundColor: "#ffedbc",
   },
   nameBox:{
     flex:1,
@@ -80,14 +78,15 @@ const styles = StyleSheet.create({
     height:150,
     margin:8,
     borderRadius:15,
-    borderWidth:5,
-    borderColor:'black',
-    backgroundColor:'teal',
+    borderWidth:2.5,
+    borderColor:'red',
+    elevation:15,
     alignItems:'center',
     justifyContent:'center'
   },
   catText:{
-    color:'white',
-    fontSize:28
+    color:'black',
+    fontSize:28,
+    fontWeight:'bold'
   }
 });

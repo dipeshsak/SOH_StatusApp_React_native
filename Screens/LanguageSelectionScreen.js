@@ -27,7 +27,7 @@ export default class LanguageSelectionScreen extends React.Component {
         <TouchableOpacity style={styles.nameBox} onPress={()=>{
             this.props.navigation.navigate("CateSelScreen",{Lan:'English'})
         }}>
-          <Text style={styles.lanText}>English</Text>
+          <Text style={styles.lanText}>English </Text>
         </TouchableOpacity>
     </View>
    
@@ -38,7 +38,7 @@ export default class LanguageSelectionScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#ffedbc",
     alignItems:'center',
     justifyContent:'center'
   },
@@ -48,16 +48,18 @@ const styles = StyleSheet.create({
   nameBox:{
     width:'80%',
     height:'15%',
-    marginBottom:10,
+    marginBottom:40,
     borderRadius:10,
-    borderWidth:5,
+    borderWidth:3,
     borderColor:'black',
-    backgroundColor:'red',
+    backgroundColor:'#F84646',
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    elevation:15
   },
   lanText:{
-    color:'white',
-    fontSize:28
+    color:'black',
+    fontSize:28,
+    fontWeight:'bold'
   }
 });
